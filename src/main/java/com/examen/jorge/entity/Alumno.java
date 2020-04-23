@@ -26,4 +26,9 @@ public class Alumno {
     public Integer getCodigo(){return this.codigo; }
     public void setCodigo(Integer codigo){this.codigo = codigo; }
 
+    public String toString(){
+        return "nombre: " + this.nombre + ", apellido: " + this.apellido +
+                ", codigo: " + codigo;
+    }
+
 }

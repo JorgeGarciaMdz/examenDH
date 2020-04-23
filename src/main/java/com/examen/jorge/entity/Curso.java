@@ -1,6 +1,7 @@
 package com.examen.jorge.entity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Curso {
     private String nombre;
@@ -14,7 +15,15 @@ public class Curso {
         this.nombre = nombre;
         this.codigo = codigo;
         this.cupoMaximo = cupoMaximo;
-        this.alumnos = new ArrayList<>();
+        this.inscriptos =  new ArrayList<>();
+    }
+
+    public boolean hayCupo(){
+        if(cupoMaximo >= inscriptos.size()){
+            return false;
+        } else {
+            return true;
+        }
     }
 
     public boolean compararCurso(Object obj){
@@ -26,10 +35,20 @@ public class Curso {
 
     public boolean agregarUnAlumno(Alumno unAlumno){
         if( this.cupoMaximo >= this.inscriptos.size() ){
-            return false
+            return false;
         } else {
             this.inscriptos.add(unAlumno);
             return true;
+        }
+    }
+
+    public void eliminarAlumno(Alumno alumno){
+        boolean isPresent = inscriptos.stream()
+                                .filter(a -> a.getCodigo().equals(alumno.getCodigo()))
+                                .findFirst()
+                                .isPresent();
+        if(isPresent){
+            inscriptos.remove(alumno);
         }
     }
 
@@ -44,4 +63,12 @@ public class Curso {
     public ProfesorAdjunto getProfesorAdjunto(){ return this.profesorAdjunto; }
     public void setProfesorAdjunto(ProfesorAdjunto profesorAdjunto){ this.profesorAdjunto = profesorAdjunto;}
     public List<Alumno> getInscriptos(){ return this.inscriptos; }
+
+    public String toString(){
+        return "nombre: " + this.nombre + ", codigo: " + this.codigo +
+                ", cupoMaximo: " + this.cupoMaximo + " cantidad inscriptos: " +
+                + this.inscriptos.size() + "  " + 
+                profesorTitular.toString() + " " +
+                profesorAdjunto.toString() ;
+    }
 }
