@@ -1,5 +1,6 @@
 package com.examen.jorge.entity;
 
+
 public class ProfesorTitular extends Profesor{
     private String especialidad;
 
