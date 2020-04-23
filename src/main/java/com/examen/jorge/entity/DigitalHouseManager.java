@@ -81,4 +81,28 @@ public class DigitalHouseManager {
             }
         }
     }
+
+    public void asignarProfesor(Integer codigoCurso, Integer codigoProfesorTitular, Integer codigoProfesorAdjunto){
+        boolean adj = profesores.stream().filter(p -> p.getCodigo().equals(codigoProfesorAdjunto))
+                        .findFirst().isPresent();
+        boolean tit = profesores.stream().filter(p -> p.getCodigo().equals(codigoProfesorTitular))
+                        .findFirst().isPresent();
+        boolean cur = cursos.stream().filter( c -> c.getCodigo().equals(codigoCurso))
+                        .findFirst().isPresent();
+        if(adj && tit && cur){
+            Optional<Profesor> profTit = profesores.stream()
+                                                .filter( p -> p.getCodigo().equals(codigoProfesorTitular))
+                                                .findFirst();
+            Optional<Profesor> profAdj = profesores.stream()
+                                                .filter( p -> p.getCodigo().equals(codigoProfesorAdjunto))
+                                                .findFirst();
+            Optional<Curso> curs = cursos.stream().filter( c -> c.getCodigo().equals(codigoCurso))
+                                            .findFirst();
+            int index = cursos.indexOf(curs.get());
+            Curso c = curs.get();
+            c.setProfesorAdjunto((ProfesorAdjunto) profAdj.get());
+            c.setProfesorTitular((ProfesorTitular) profTit.get());
+            cursos.add(index, c);
+        }
+    }
 }
