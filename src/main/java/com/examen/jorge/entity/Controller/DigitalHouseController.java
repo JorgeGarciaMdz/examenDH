@@ -12,8 +12,10 @@ import com.examen.jorge.entity.Pojos.InscAlumno;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -81,5 +83,18 @@ public class DigitalHouseController {
             digitalHouseManager.inscribirAlumno(i.getCodigoAlumno(), i.getCodigoCurso());
         }
         log.info("alumnos inscriptos: " + digitalHouseManager.alumnos);
+    }
+
+    @GetMapping("/detalleAlumno/{codigo}")
+    public Alumno detalleAlumno(@PathVariable (name = "codigo") Integer codigo){
+        log.info("find alumno with codigo: " + codigo);
+        log.info("Alumno: " + digitalHouseManager.findAlumno(codigo));
+        return digitalHouseManager.findAlumno(codigo);
+    }
+
+    @PutMapping("/actualizarAlumno")
+    public void actualizarAlumno(@RequestBody Alumno al){
+        log.info("actualizar alumno con: " + al);
+        digitalHouseManager.updateAlumno(al);
     }
 }

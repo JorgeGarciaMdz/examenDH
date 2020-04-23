@@ -58,6 +58,22 @@ public class DigitalHouseManager {
         alumnos.add(new Alumno(nombre, apellido, codigo));
     }
 
+    public void updateAlumno(Alumno al){
+        boolean isPresent = alumnos.stream().filter(a -> a.getCodigo().equals(al.getCodigo()))
+                                    .findFirst().isPresent();
+        if(isPresent){
+            Optional<Alumno> alOp = alumnos.stream()
+                                        .filter(a -> a.getCodigo().equals(al.getCodigo()))
+                                        .findFirst();
+            Alumno a = alOp.get();
+            int index = alumnos.indexOf(a);
+            a.setApellido(al.getApellido());
+            a.setNombre(al.getNombre());
+            alumnos.add(index, a);
+            log.info("Alumno actualizado en array: " + alumnos.get(index));
+        }
+    }
+
     public void inscribirAlumno(Integer codigoAlumno, Integer codigoCurso){
         boolean isPresentCurso = cursos.stream()
                                     .filter( c -> c.getCodigo().equals(codigoCurso))
@@ -110,6 +126,19 @@ public class DigitalHouseManager {
             cursos.add(index, c);
         } else{
             log.info("no se ha podido hacer la asignación de profesores, no existen");
+        }
+    }
+
+    public Alumno findAlumno(Integer codigo){
+        boolean isPresent = alumnos.stream().filter(a -> a.getCodigo().equals(codigo))
+                                    .findFirst().isPresent();
+        if(isPresent){
+            Optional<Alumno> alumno = alumnos.stream()
+                                        .filter(a -> a.getCodigo().equals(codigo))
+                                        .findFirst();
+            return alumno.get();
+        } else{
+            return null;
         }
     }
 }

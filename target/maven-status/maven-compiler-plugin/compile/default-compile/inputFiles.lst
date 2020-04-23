@@ -1,8 +1,11 @@
 /mnt/Datos/usuarios/descargas/curso-java/exam/examenDH/src/main/java/com/examen/jorge/entity/Profesor.java
 /mnt/Datos/usuarios/descargas/curso-java/exam/examenDH/src/main/java/com/examen/jorge/JorgeApplication.java
 /mnt/Datos/usuarios/descargas/curso-java/exam/examenDH/src/main/java/com/examen/jorge/entity/Inscripcion.java
+/mnt/Datos/usuarios/descargas/curso-java/exam/examenDH/src/main/java/com/examen/jorge/entity/Pojos/AsignarProfesors.java
 /mnt/Datos/usuarios/descargas/curso-java/exam/examenDH/src/main/java/com/examen/jorge/entity/ProfesorAdjunto.java
 /mnt/Datos/usuarios/descargas/curso-java/exam/examenDH/src/main/java/com/examen/jorge/entity/Alumno.java
 /mnt/Datos/usuarios/descargas/curso-java/exam/examenDH/src/main/java/com/examen/jorge/entity/ProfesorTitular.java
+/mnt/Datos/usuarios/descargas/curso-java/exam/examenDH/src/main/java/com/examen/jorge/entity/Controller/DigitalHouseController.java
 /mnt/Datos/usuarios/descargas/curso-java/exam/examenDH/src/main/java/com/examen/jorge/entity/DigitalHouseManager.java
+/mnt/Datos/usuarios/descargas/curso-java/exam/examenDH/src/main/java/com/examen/jorge/entity/Pojos/InscAlumno.java
 /mnt/Datos/usuarios/descargas/curso-java/exam/examenDH/src/main/java/com/examen/jorge/entity/Curso.java
