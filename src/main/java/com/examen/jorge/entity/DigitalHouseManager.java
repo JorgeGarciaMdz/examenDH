@@ -5,7 +5,9 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Service
 public class DigitalHouseManager {
     public static List<Alumno> alumnos = new ArrayList<>();
@@ -106,6 +108,8 @@ public class DigitalHouseManager {
             c.setProfesorAdjunto((ProfesorAdjunto) profAdj.get());
             c.setProfesorTitular((ProfesorTitular) profTit.get());
             cursos.add(index, c);
+        } else{
+            log.info("no se ha podido hacer la asignación de profesores, no existen");
         }
     }
 }

@@ -28,7 +28,7 @@ public class Alumno {
 
     public String toString(){
         return "nombre: " + this.nombre + ", apellido: " + this.apellido +
-                ", codigo: " + codigo;
+                ", codigo: " + this.codigo;
     }
 
 }

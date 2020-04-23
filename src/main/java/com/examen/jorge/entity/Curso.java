@@ -3,6 +3,9 @@ package com.examen.jorge.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class Curso {
     private String nombre;
     private Integer codigo;
@@ -65,10 +68,15 @@ public class Curso {
     public List<Alumno> getInscriptos(){ return this.inscriptos; }
 
     public String toString(){
+        String profesors = "";
+        if(!(profesorTitular == null)){
+            profesors = profesorTitular.toString();
+        }
+        if( !(profesorAdjunto == null)){
+            profesors += "  " + profesorAdjunto.toString();
+        }
         return "nombre: " + this.nombre + ", codigo: " + this.codigo +
                 ", cupoMaximo: " + this.cupoMaximo + " cantidad inscriptos: " +
-                + this.inscriptos.size() + "  " + 
-                profesorTitular.toString() + " " +
-                profesorAdjunto.toString() ;
+                + this.inscriptos.size() + "  " + profesors ;
     }
 }
